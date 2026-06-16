@@ -27,14 +27,15 @@ public:
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp; 
-        for (int i = 0; i < nums.size(); i++) {
-            int complement = target - nums[i];
-            if (mp.find(complement) != mp.end()) {
-                return {mp[complement], i};
+        unordered_map<int, int> map;
+        for(int i=0; i<nums.size(); i++){
+            int a= nums[i];
+            int more = target -a;
+            if (map.find(more)!= map.end()){
+                return {map[more], i};
             }
-            mp[nums[i]] = i;
+            map[a]= i;
         }
-        return {};
+        return{-1, -1}; 
     }
 };
